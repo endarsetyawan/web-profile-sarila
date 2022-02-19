@@ -7,7 +7,7 @@
 <div class="page-content">
     <div class="container-fluid"> 
         
-<form action="{{route('kamar_anak.store')}}" method="post">
+<form action="{{route('kamar_icu.store')}}" method="post">
  @csrf
             <div class="row">
                 <div class="col-lg-12">
@@ -33,7 +33,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
-                                    <a href="{{route('kamar_anak.index')}}" class="btn btn-danger">
+                                    <a href="{{route('kamar_icu.index')}}" class="btn btn-danger">
                                         Batal
                                     </a>
                                 </div>

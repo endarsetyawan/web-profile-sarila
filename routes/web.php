@@ -64,3 +64,6 @@ Route::resource('kamar_perinatologi', \App\Http\Controllers\KamarPerinatologiCon
 
 Route::resource('kamar_utama', \App\Http\Controllers\KamarUtamaController::class)
     ->middleware('auth');
+
+Route::resource('kategori_berita', \App\Http\Controllers\KategoriBeritaController::class)
+    ->middleware('auth');

@@ -1,75 +1,72 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\KamarPerinatologi;
+use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 use Session;
-class KamarPerinatologiController extends Controller
+class KategoriBeritaController extends Controller
 {
     public function index()
     {
-        $kmrank = KamarPerinatologi::all();
-        return view('admin.kamar_perinatologi.index', [
-            'kamar_perinatologi' => $kmrank
+        $kmrank = KategoriBerita::all();
+        return view('admin.kategori_berita.index', [
+            'kategori_berita' => $kmrank
         ]);
     }
     public function create()
     {
-        return view('admin.kamar_perinatologi.create');
+        return view('admin.kategori_berita.create');
     }
     public function store(Request $request)
     {
         $request->validate([
-            'nama_bangsal' => 'required',
-            'jumlah' => 'required'
+            'nama_kategori' => 'required'
         ]);
         $array = $request->only([
-            'nama_bangsal', 'jumlah'
+            'nama_kategori'
         ]);
-        $table = KamarPerinatologi::create($array);
+        $table = KategoriBerita::create($array);
         Session::flash('sukses','Data Berhasil Ditambahkan');
-        return redirect()->route('kamar_perinatologi.index')
+        return redirect()->route('kategori_berita.index')
             ->with('success_message', 'Berhasil menambah Barang baru');
     }
     public function edit($id)
     {
-        $kmrank = KamarPerinatologi::find($id);
-        if (!$kmrank) return redirect()->route('kamar_perinatologi.index')
+        $kmrank = KategoriBerita::find($id);
+        if (!$kmrank) return redirect()->route('kategori_berita.index')
             ->with('error_message', 'Kamar Anak dengan id'.$id.' tidak ditemukan');
-        return view('admin.kamar_perinatologi.edit', [
-            'kamar_perinatologi' => $kmrank
+        return view('admin.kategori_berita.edit', [
+            'kategori_berita' => $kmrank
         ]);
     }
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_bangsal' => 'required',
-            'jumlah' => 'required'
+            'nama_kategori' => 'required'
         ]);
-        $table = KamarPerinatologi::findOrFail($id);
-        $table->nama_bangsal = $request->nama_bangsal;
-        $table->jumlah = $request->jumlah;
+        $table = KategoriBerita::findOrFail($id);
+        $table->nama_kategori = $request->nama_kategori;
         $table->update();
         Session::flash('sukses','Data Berhasil Diubah');
-        return redirect()->route('kamar_perinatologi.index')
+        return redirect()->route('kategori_berita.index')
             ->with('success_message', 'Berhasil mengubah Barang');
     }
 
     public function destroy(Request $request, $id)
     {
-        $table = KamarPerinatologi::find($id);
+        $table = KategoriBerita::find($id);
         if ($table) $table->delete();
         Session::flash('sukses','Data Berhasil Dihapus');
-        return redirect()->route('kamar_perinatologi.index')
+        return redirect()->route('kategori_berita.index')
             ->with('success_message', 'Berhasil menghapus Barang');
             
     }
     public function show(Request $request, $id)
     {
-        $table = KamarPerinatologi::find($id);
+        $table = KategoriBerita::find($id);
         if ($table) $table->delete();
         Session::flash('sukses','Data Berhasil Dihapus');
-        return redirect()->route('kamar_perinatologi.index')
+        return redirect()->route('kategori_berita.index')
             ->with('success_message', 'Berhasil menghapus Barang');
             
     }

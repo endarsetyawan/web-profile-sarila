@@ -88,12 +88,13 @@
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="/kamar_anak">Kamar Anak</a></li>
                                 <li><a href="/kamar_bidan">Kamar Bidan</a></li>
-                                <li><a href="tables-responsive.html">Kamar Dewasa</a></li>
-                                <li><a href="tables-footable.html">Kamar ICU</a></li>
-                                <li><a href="tables-jsgrid.html">Kamar Perinatologi</a></li>
-                                <li><a href="tables-editable.html">Kamar Utama</a></li>
+                                <li><a href="/kamar_dewasa">Kamar Dewasa</a></li>
+                                <li><a href="/kamar_icu">Kamar ICU</a></li>
+                                <li><a href="/kamar_perinatologi">Kamar Perinatologi</a></li>
+                                <li><a href="/kamar_utama">Kamar Utama</a></li>
                             </ul>
                         </li>
+                        <li><a href="/kategori_berita"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Kategori Berita</span></a></li>
 
                     </ul>
                 </div>

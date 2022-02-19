@@ -7,7 +7,7 @@
 <div class="page-content">
     <div class="container-fluid"> 
         
-<form action="{{route('kamar_anak.update', $kamar_anak)}}" method="post">
+<form action="{{route('kamar_utama.update', $kamar_utama)}}" method="post">
 @method('PUT')
  @csrf
             <div class="row">
@@ -20,13 +20,13 @@
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label text-right">Nama Bangsal</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="nama_bangsal" name="nama_bangsal" value="{{$kamar_anak->nama_bangsal}}">
+                                            <input class="form-control" type="text" id="nama_bangsal" name="nama_bangsal" value="{{$kamar_utama->nama_bangsal}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-email-input" class="col-sm-2 col-form-label text-right">Jumlah Bangsal</label>
                                         <div class="col-sm-10">
-                                            <input  class="form-control" type="text" id="jumlah_bangsal" name="jumlah" value="{{$kamar_anak->jumlah}}">
+                                            <input  class="form-control" type="text" id="jumlah_bangsal" name="jumlah" value="{{$kamar_utama->jumlah}}">
                                         </div>
                                     </div>                            
                                 </div>
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
-                                    <a href="{{route('kamar_anak.index')}}" class="btn btn-danger">
+                                    <a href="{{route('kamar_utama.index')}}" class="btn btn-danger">
                                         Batal
                                     </a>
                                 </div>

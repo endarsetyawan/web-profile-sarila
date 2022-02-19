@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KategoriBerita extends Model
+class KamarUtama extends Model
 {
-    protected $fillable = ['nama_kategori'];
-    protected $table = 'tb_kategori_berita';
+    protected $fillable = ['nama_bangsal','jumlah'];
+    protected $table = 'tb_kamar_utama';
 }
