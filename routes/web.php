@@ -34,7 +34,15 @@ Route::resource('pengguna', \App\Http\Controllers\PenggunaController::class);
 //Route::resource('kontak/send', [App\Http\Controllers\KontakController::class, 'sendEmail'])->name('kontak');
 Route::get('/pendaftaran', function () {
     return view('pendaftaran');
-});
+}); 
 Route::get('/officer', function () {
     return view('admin/login/login');
 });
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+->name('home')
+->middleware('auth');
+
+Route::resource('kamar_anak', \App\Http\Controllers\KamarAnakController::class)
+    ->middleware('auth')
+    ->middleware('checkRole:1'); 

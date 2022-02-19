@@ -25,7 +25,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="" method="post">
+      <form action="{{ route('login') }}" method="post">
         @csrf
         <div class="input-group mb-3">
         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus placeholder="Username">
