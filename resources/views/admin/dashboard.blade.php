@@ -280,7 +280,7 @@
     </div><!-- container -->
 
             <footer class="footer text-center text-sm-left">
-                &copy; 2019 Frogetor <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span>
+                &copy; 2021 IT Sarila Husada <span class="text-muted d-none d-sm-inline-block float-right"></span>
             </footer>
         </div>
 @endsection

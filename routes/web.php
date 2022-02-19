@@ -19,6 +19,10 @@ Route::get('/', [App\Http\Controllers\ViewController::class, 'index'])->name('ho
 Route::get('jadwal_dokter', function () {
     return view('jadwal');
 });
+Route::get('/pesan','NotifController@index');
+Route::get('/pesan/sukses','NotifController@sukses');
+Route::get('/pesan/peringatan','NotifController@peringatan');
+Route::get('/pesan/gagal','NotifController@gagal');
 
 Route::get('kamar', [App\Http\Controllers\KamarController::class, 'index'])->name('kamar');
 Route::get('jadwal_dokter', [App\Http\Controllers\JadwalDokterController::class, 'index'])->name('jadwaldokter');
@@ -44,5 +48,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 ->middleware('auth');
 
 Route::resource('kamar_anak', \App\Http\Controllers\KamarAnakController::class)
-    ->middleware('auth')
-    ->middleware('checkRole:1'); 
+    ->middleware('auth');
+
+Route::resource('kamar_bidan', \App\Http\Controllers\KamarBidanController::class)
+    ->middleware('auth');
+
+Route::resource('kamar_dewasa', \App\Http\Controllers\KamarDewasaController::class)
+    ->middleware('auth');
+
+Route::resource('kamar_icu', \App\Http\Controllers\KamarIcuController::class)
+    ->middleware('auth');
+
+Route::resource('kamar_perinatologi', \App\Http\Controllers\KamarPerinatologiController::class)
+    ->middleware('auth');
+
+Route::resource('kamar_utama', \App\Http\Controllers\KamarUtamaController::class)
+    ->middleware('auth');

@@ -10,16 +10,16 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="/images/icon-logo.png">
 
-        <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.cssassets/plugins/jvectormap/jquery-jvectormap-2.0.2.css') }}assets/css/style.cssassets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
         <!-- DataTables -->
-        <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -28,7 +28,7 @@
         <div class="page-wrapper-img">
             <div class="page-wrapper-img-inner">
                 <div class="sidebar-user media">                    
-                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                    <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="user" class="rounded-circle img-thumbnail mb-1">
                     <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
                     <div class="media-body">
                         <h5 class="text-light">Mr. Michael Hill </h5>
@@ -87,7 +87,7 @@
                             <a href="javascript: void(0);"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Kamar</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="/kamar_anak">Kamar Anak</a></li>
-                                <li><a href="tables-datatable.html">Kamar Bidan</a></li>
+                                <li><a href="/kamar_bidan">Kamar Bidan</a></li>
                                 <li><a href="tables-responsive.html">Kamar Dewasa</a></li>
                                 <li><a href="tables-footable.html">Kamar ICU</a></li>
                                 <li><a href="tables-jsgrid.html">Kamar Perinatologi</a></li>
@@ -102,34 +102,35 @@
                 <!-- Page Content-->
                 
                 <!-- end page content -->
+                
             </div>
             <!--end page-wrapper-inner -->
         </div>
         <!-- end page-wrapper -->
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/waves.min.js"></script>
-        <script src="assets/js/jquery.slimscroll.min.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('assets/js/waves.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
 
-        <script src="assets/plugins/moment/moment.js"></script>
-        <script src="assets/plugins/apexcharts/apexcharts.min.js"></script>
+        <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+        <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
         <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
         <script src="https://apexcharts.com/samples/assets/series1000.js"></script>
         <script src="https://apexcharts.com/samples/assets/ohlc.js"></script>
 
-        <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-        <script src="assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
+        <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-us-aea-en.js') }}"></script>
         <!-- Required datatable js -->
-        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
-        <script src="assets/pages/jquery.dashboard-2.init.js"></script>
+        <script src="{{ asset('assets/pages/jquery.dashboard-2.init.js') }}"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
 
     </body>
 </html>
