@@ -97,6 +97,7 @@
                         <li><a href="/kategori_berita"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Kategori Berita</span></a></li>
                         <li><a href="/spesialis"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Spesialis</span></a></li>
                         <li><a href="/jdl_dokter"><i class="mdi mdi-format-list-bulleted-type"></i><span>Jadwal Dokter</span></a></li>
+                        <li><a href="/dokter_data"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Dokter</span></a></li>
 
                     </ul>
                 </div>

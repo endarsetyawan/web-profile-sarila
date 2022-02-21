@@ -73,3 +73,6 @@ Route::resource('spesialis', \App\Http\Controllers\SpesialisController::class)
 
 Route::resource('dokter_jadwal', \App\Http\Controllers\DokterJadwalController::class)
     ->middleware('auth');
+
+Route::resource('dokter_data', \App\Http\Controllers\DokterDataController::class)
+    ->middleware('auth');

@@ -13,7 +13,7 @@
                 @foreach ($dokterprofil as $keydatdok => $datdok)
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
                     <div class="widget clearfix">
-                        <img src="images/{{$datdok->foto}}" alt="" class="img-responsive img-rounded">
+                        <img style="height: 325px;" src="images/{{$datdok->foto}}" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
                             <h3 style="font-size: 16px;">{{$datdok->nama_dokter}}</h3>
                             <small>{{$datdok->nama_spesialis}}</small>
