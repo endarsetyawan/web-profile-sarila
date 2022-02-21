@@ -1,7 +1,7 @@
 @extends('admin.layouts.home')
-@section('title2', 'Kategori Berita')
+@section('title2', 'Jadwal Dokter')
 @section('content_header')
-    <h1 class="m-0 text-dark">Data Kamar Dewasa</h1>
+    <h1 class="m-0 text-dark">Data Jadwal Dokter</h1>
 @stop
 @section('isi')
 <div class="page-content">
@@ -30,31 +30,39 @@
                             <strong>{{ $message }}</strong>
                             </div>
                         @endif
-                        <a href="{{route('kategori_berita.create')}}" class="btn btn-primary mb-2">
+                        <a href="{{route('dokter_jadwal.create')}}" class="btn btn-primary mb-2">
                         Tambah
                         </a>
-                        <h4 class="mt-0 header-title">Data Kategori Berita</h4>
+                        <h4 class="mt-0 header-title">Data Jadwal Dokter</h4>
 
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Kategori</th>
+                                <th>Nama Spesialis</th>
+                                <th>Nama Dokter</th>
+                                <th>Hari</th>
+                                <th>Waktu</th>
+                                <th>Jam</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($kategori_berita as $key => $tabel)
+                            @foreach($dokter_jadwal as $key => $tabel)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$tabel->nama_kategori}}</td>
+                                    <td>{{$tabel->nama_spesialis}}</td>
+                                    <td>{{$tabel->nama_dokter}}</td>
+                                    <td>{{$tabel->hari}}</td>
+                                    <td>{{$tabel->waktu}}</td>
+                                    <td>{{$tabel->jam}}</td>
                                     <td align='center'>
-                                        <a href="{{route('kategori_berita.edit', $tabel)}}" class="btn btn-primary btn-xs">
+                                        <a href="{{route('dokter_jadwal.edit', $tabel)}}" class="btn btn-primary btn-xs">
                                             Edit
                                         </a>
-                                        <a href="{{route('kategori_berita.destroy', $tabel)}}" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="btn btn-danger btn-xs">
+                                        <a href="{{route('dokter_jadwal.destroy', $tabel)}}" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="btn btn-danger btn-xs">
                                             Delete
                                         </a>
                                     </td>

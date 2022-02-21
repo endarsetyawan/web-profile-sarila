@@ -1,5 +1,6 @@
 @extends('admin.layouts.home')
-@section('title', 'Pinjam Alat')
+@section('title2', 'Kamar Dewasa')
+@section('title1', 'Kamar')
 @section('content_header')
     <h1 class="m-0 text-dark">Data Kamar Dewasa</h1>
 @stop

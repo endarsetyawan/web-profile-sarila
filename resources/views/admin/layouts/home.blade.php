@@ -62,8 +62,8 @@
                             <div class="">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Admin Sarila Husada</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Dashboard-2</li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">@yield('title1')</a></li>
+                                    <li class="breadcrumb-item active">@yield('title2')</li>
                                 </ol>
                             </div>                                      
                         </div><!--end page title box-->
@@ -95,6 +95,8 @@
                             </ul>
                         </li>
                         <li><a href="/kategori_berita"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Kategori Berita</span></a></li>
+                        <li><a href="/spesialis"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Spesialis</span></a></li>
+                        <li><a href="/jdl_dokter"><i class="mdi mdi-format-list-bulleted-type"></i><span>Jadwal Dokter</span></a></li>
 
                     </ul>
                 </div>
@@ -111,11 +113,12 @@
 
         <!-- jQuery  -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/all.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
         <script src="{{ asset('assets/js/waves.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
-
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
         <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
         <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
@@ -132,6 +135,19 @@
 
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
-
+        <script type="text/javascript">
+        $(function () {
+            $('#id_spesialis').on('change', function () {
+                    axios.post('{{ route('dependent-dropdown.store') }}', {id: $(this).val()})
+                        .then(function (response) {
+                            $('#id_dokter').empty();
+                            $('#id_dokter').append(new Option("== Select Dokter ==", ""))
+                            $.each(response.data, function (id, nama_dokter) {
+                                $('#id_dokter').append(new Option(nama_dokter, id))
+                            })
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

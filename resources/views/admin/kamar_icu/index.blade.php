@@ -1,5 +1,6 @@
 @extends('admin.layouts.home')
-@section('title', 'Pinjam Alat')
+@section('title2', 'Kamar ICU')
+@section('title1', 'Kamar')
 @section('content_header')
     <h1 class="m-0 text-dark">Data Kamar ICU</h1>
 @stop

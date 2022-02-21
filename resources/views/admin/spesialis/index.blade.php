@@ -1,5 +1,5 @@
 @extends('admin.layouts.home')
-@section('title2', 'Kategori Berita')
+@section('title2', 'Spesialis')
 @section('content_header')
     <h1 class="m-0 text-dark">Data Kamar Dewasa</h1>
 @stop
@@ -30,7 +30,7 @@
                             <strong>{{ $message }}</strong>
                             </div>
                         @endif
-                        <a href="{{route('kategori_berita.create')}}" class="btn btn-primary mb-2">
+                        <a href="{{route('spesialis.create')}}" class="btn btn-primary mb-2">
                         Tambah
                         </a>
                         <h4 class="mt-0 header-title">Data Kategori Berita</h4>
@@ -39,22 +39,22 @@
                             <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Kategori</th>
+                                <th>Spesialis</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($kategori_berita as $key => $tabel)
+                            @foreach($spesialis as $key => $tabel)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$tabel->nama_kategori}}</td>
+                                    <td>{{$tabel->nama_spesialis}}</td>
                                     <td align='center'>
-                                        <a href="{{route('kategori_berita.edit', $tabel)}}" class="btn btn-primary btn-xs">
+                                        <a href="{{route('spesialis.edit', $tabel)}}" class="btn btn-primary btn-xs">
                                             Edit
                                         </a>
-                                        <a href="{{route('kategori_berita.destroy', $tabel)}}" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="btn btn-danger btn-xs">
+                                        <a href="{{route('spesialis.destroy', $tabel)}}" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="btn btn-danger btn-xs">
                                             Delete
                                         </a>
                                     </td>

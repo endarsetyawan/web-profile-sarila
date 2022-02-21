@@ -31,7 +31,7 @@ Route::get('berita', [App\Http\Controllers\BeritaController::class, 'index'])->n
 Route::get('berita/{id}', [App\Http\Controllers\BeritaKategoriController::class, 'index'])->name('berita');
 Route::get('berita_detail/{id}', [App\Http\Controllers\BeritaDetailController::class, 'index'])->name('berita');
 Route::get('kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
-
+Route::post('dependent-dropdown', [App\Http\Controllers\DependentDropdownController::class, 'store'])->name('dependent-dropdown.store');
 Route::post('send-email', 'App\Http\Controllers\KontakController@sendEmail');
 Route::resource('pengguna', \App\Http\Controllers\PenggunaController::class);
 //Route::get('officer', [App\Http\Controllers\OfficeController::class, 'index'])->name('office');
@@ -66,4 +66,10 @@ Route::resource('kamar_utama', \App\Http\Controllers\KamarUtamaController::class
     ->middleware('auth');
 
 Route::resource('kategori_berita', \App\Http\Controllers\KategoriBeritaController::class)
+    ->middleware('auth');
+
+Route::resource('spesialis', \App\Http\Controllers\SpesialisController::class)
+    ->middleware('auth');
+
+Route::resource('dokter_jadwal', \App\Http\Controllers\DokterJadwalController::class)
     ->middleware('auth');
