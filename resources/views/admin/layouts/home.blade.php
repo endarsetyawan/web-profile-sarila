@@ -98,6 +98,7 @@
                         <li><a href="/spesialis"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Spesialis</span></a></li>
                         <li><a href="/jdl_dokter"><i class="mdi mdi-format-list-bulleted-type"></i><span>Jadwal Dokter</span></a></li>
                         <li><a href="/dokter_data"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Dokter</span></a></li>
+                        <li><a href="/artikel"><i class="mdi mdi-format-list-bulleted-type"></i><span>Data Artikel</span></a></li>
 
                     </ul>
                 </div>
@@ -133,6 +134,9 @@
         <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
         <script src="{{ asset('assets/pages/jquery.dashboard-2.init.js') }}"></script>
+
+        <script src="{{ asset('assets/plugins/tinymce/tinymce.min.js') }}"></script>
+        <script src="{{ asset('assets/pages/jquery.form-editor.init.js') }}"></script>
 
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>

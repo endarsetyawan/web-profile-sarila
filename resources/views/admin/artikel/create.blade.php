@@ -7,49 +7,44 @@
 <div class="page-content">
     <div class="container-fluid"> 
         
-<form action="{{route('dokter_data.update', $dokter_data)}}" method="post" enctype="multipart/form-data">
-@method('PUT')
+<form action="{{route('artikel.store')}}" method="post" enctype="multipart/form-data">
  @csrf
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">        
-                            <h4 class="mt-0 header-title">Edit Data Dokter</h4>
+                        <div class="card-body">         
+                            <h4 class="mt-0 header-title">Tambah Data Artikel</h4>
                             <div class="row">
                                 <div class="col-lg-6">
-                                <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Nama Dokter</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="nama_dokter" name="nama_dokter" value="{{$dokter_data->nama_dokter}}">
-                                        </div>
-                                    </div>
                                     <div class="form-group row">
-                                        <label for="example-email-input" class="col-sm-2 col-form-label text-right">Alamat</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Nama Kategori</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" type="text" id="alamat" name="alamat">{{$dokter_data->alamat}}</textarea>
-                                        </div>
-                                    </div>  
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Nama Spesialis</label>
-                                        <div class="col-sm-10">
-                                            <select name="id_spesialis" id="id_spesialis" class="form-control">
-                                                <option value="">== Select Spesialis ==</option>
-                                                @foreach ($spesialis as $tabel)
-                                                    @if($dokter_data->id_spesialis == $tabel->id)
-                                                        <option value="{{ $tabel->id }}" selected>{{ $tabel->nama_spesialis }}</option>
-                                                    @else
-                                                        <option value="{{ $tabel->id }}">{{ $tabel->nama_spesialis }}</option>
-                                                    @endif
+                                            <select name="id_kategori" id="id_kategori" class="form-control">
+                                                @foreach ($kategori as $tabel)
+                                                    <option value="{{ $tabel->id }}">{{ $tabel->nama_kategori }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>   
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-email-input" class="col-sm-2 col-form-label text-right">Judul</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" id="input-file-now" class="form-control" id="judul" name="judul"/>
+                                        </div>
+                                    </div>  
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label text-right">Isi Artikel</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id='elm1' name='isi'> </textarea>
+                                        </div>
+                                    </div> 
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label text-right">File Foto</label>
                                         <div class="col-sm-10">
                                             <input type="file" id="input-file-now" class="dropify" id="file" name="file"/>   
                                         </div>
-                                    </div>                      
+                                    </div> 
+
                                 </div>
                             </div>     
                             <div class="row">

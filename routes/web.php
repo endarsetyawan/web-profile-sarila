@@ -76,3 +76,6 @@ Route::resource('dokter_jadwal', \App\Http\Controllers\DokterJadwalController::c
 
 Route::resource('dokter_data', \App\Http\Controllers\DokterDataController::class)
     ->middleware('auth');
+
+Route::resource('artikel', \App\Http\Controllers\ArtikelController::class)
+    ->middleware('auth');

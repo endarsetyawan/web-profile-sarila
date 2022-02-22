@@ -1,30 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Datadokter;
-use App\Models\Spesialis;
+use App\Models\Berita;
+use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 use Session;
 
-class DokterDataController extends Controller
+class ArtikelController extends Controller
 {
     public function index()
     {
-        $kmrank = DataDokter::select(
-            "tb_data_dokter.*",
-            "tb_spesialis.nama_spesialis"
+        $kmrank = Berita::select(
+            "tb_berita.*",
+            "tb_kategori_berita.nama_kategori"
         )
-            ->leftJoin("tb_spesialis", "tb_spesialis.id", "=", "tb_data_dokter.id_spesialis")
+            ->leftJoin("tb_kategori_berita", "tb_kategori_berita.id", "=", "tb_berita.id_kategori")
             ->get();
-        return view('admin.dokter_data.index', [
-            'dokter_data' => $kmrank
+        return view('admin.artikel.index', [
+            'artikel' => $kmrank
         ]);
     }
     public function create()
     {
-        $kmrank1 = Spesialis::all();
-        return view('admin.dokter_data.create', [
-            'spesialis' => $kmrank1
+        $kmrank1 = KategoriBerita::all();
+        return view('admin.artikel.create', [
+            'kategori' => $kmrank1
         ]);
     }
     public function store(Request $request)
@@ -38,33 +38,35 @@ class DokterDataController extends Controller
         $file = $request->file('file');
         $ext = $file->getClientOriginalExtension();
         $ymdhis = date("ymdhis");
-        $namafile = "dokter".$ymdhis.".".$ext;
-        $tujuan_upload = public_path() .'/images';
+        $yyy = date("Y-m-d h:i:s");
+        $namafile = "berita".$ymdhis.".".$ext;
+        $tujuan_upload = public_path() .'/images/berita';
         $file->move($tujuan_upload,$namafile);
         //$array = $request->only([
         //    'nama_dokter', 'alamat', 'id_spesialis'
         //]);
         //array_push($array,$namafile);
-        //$table = DataDokter::create($array);
-        DataDokter::create([
-            'nama_dokter' => $request->nama_dokter,
-            'alamat' => $request->alamat,
-            'id_spesialis' => $request->id_spesialis,
-            'foto' => $namafile
+        //$table = Berita::create($array);
+        Berita::create([
+            'id_kategori' => $request->id_kategori,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'date' => $yyy,
+            'gambar' => $namafile
         ]);
         Session::flash('sukses','Data Berhasil Ditambahkan');
-        return redirect()->route('dokter_data.index')
+        return redirect()->route('artikel.index')
             ->with('success_message', 'Berhasil menambah Barang baru');
     }
     public function edit($id)
     {
-        $kmrank = DataDokter::find($id);
-        $kmrank1 = Spesialis::all();
-        if (!$kmrank) return redirect()->route('dokter_data.index')
+        $kmrank = Berita::find($id);
+        $kmrank1 = KategoriBerita::all();
+        if (!$kmrank) return redirect()->route('artikel.index')
             ->with('error_message', 'Kamar Anak dengan id'.$id.' tidak ditemukan');
-        return view('admin.dokter_data.edit', [
-            'dokter_data' => $kmrank,
-            'spesialis' => $kmrank1
+        return view('admin.artikel.edit', [
+            'artikel' => $kmrank,
+            'kategori' => $kmrank1
         ]);
     }
     public function update(Request $request, $id)
@@ -73,47 +75,47 @@ class DokterDataController extends Controller
         $ext = $file->getClientOriginalExtension();
         $ymdhis = date("ymdhis");
         $yyy = date("Y-m-d h:i:s");
-        $namafile = "dokter".$ymdhis.".".$ext;
-        $tujuan_upload = public_path() .'/images';
+        $namafile = "berita".$ymdhis.".".$ext;
+        $tujuan_upload = public_path() .'/images/berita';
         $file->move($tujuan_upload,$namafile);
 
 
-        $table = DataDokter::findOrFail($id);
-        $unlink = public_path() .'/images'."/".$table->foto;
+        $table = Berita::findOrFail($id);
+        $unlink = public_path() .'/images/berita/'.$table->gambar;
         //dd($unlink);
         unlink("$unlink");
-
-        $table->nama_dokter = $request->nama_dokter;
-        $table->alamat = $request->alamat;
-        $table->id_spesialis = $request->id_spesialis;
-        $table->foto = $namafile;
+        $table->id_kategori = $request->id_kategori;
+        $table->judul = $request->judul;
+        $table->isi = $request->isi;
+        $table->date = $yyy;
+        $table->gambar = $namafile;
         $table->update();
         Session::flash('sukses','Data Berhasil Diubah');
-        return redirect()->route('dokter_data.index')
+        return redirect()->route('artikel.index')
             ->with('success_message', 'Berhasil mengubah Barang');
     }
 
     public function destroy(Request $request, $id)
     {
-        $table = DataDokter::find($id);
-        $unlink = public_path() .'/images'."/".$table->foto;
+        $table = Berita::find($id);
+        $unlink = public_path() .'/images/berita/'.$table->gambar;
         //dd($unlink);
         unlink("$unlink");
         if ($table) $table->delete();
         Session::flash('sukses','Data Berhasil Dihapus');
-        return redirect()->route('dokter_data.index')
+        return redirect()->route('artikel.index')
             ->with('success_message', 'Berhasil menghapus Barang');
             
     }
     public function show(Request $request, $id)
     {
-        $table = DataDokter::find($id);
-        $unlink = public_path() .'/images'."/".$table->foto;
+        $table = Berita::find($id);
+        $unlink = public_path() .'/images/berita/'.$table->gambar;
         //dd($unlink);
         unlink("$unlink");
         if ($table) $table->delete();
         Session::flash('sukses','Data Berhasil Dihapus');
-        return redirect()->route('dokter_data.index')
+        return redirect()->route('artikel.index')
             ->with('success_message', 'Berhasil menghapus Barang');
             
     }
