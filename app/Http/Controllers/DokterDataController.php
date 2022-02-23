@@ -61,7 +61,7 @@ class DokterDataController extends Controller
         $kmrank = DataDokter::find($id);
         $kmrank1 = Spesialis::all();
         if (!$kmrank) return redirect()->route('dokter_data.index')
-            ->with('error_message', 'Kamar Anak dengan id'.$id.' tidak ditemukan');
+            ->with('error_message', 'Kamar Anak dengan id'.$id.' tidak ditemukan'); 
         return view('admin.dokter_data.edit', [
             'dokter_data' => $kmrank,
             'spesialis' => $kmrank1
